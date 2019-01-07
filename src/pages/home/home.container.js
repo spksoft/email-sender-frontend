@@ -14,17 +14,16 @@ class Container extends React.Component {
     historyData: null
   }
 
-  async componentWillMount() {
-    this.setState({ isLoadingHistory: true })
-    const historyData = await MailAPI.getHistory()
-    this.setState({ historyData: historyData.data.data, isLoadingHistory: false })
-  }
-
   async onEmailChange(email) {
     this.setState({ isLoadingHistory: true })
     const historyData = await MailAPI.getHistory(email)
     this.setState({ historyData: historyData.data.data, isLoadingHistory: false })
   }
+
+  componentWillMount() {
+    this.onEmailChange('')
+  }
+
 
   onFromChange(from) {
     this.setState({ from })
