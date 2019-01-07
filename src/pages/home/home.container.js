@@ -9,6 +9,7 @@ class Container extends React.Component {
         onToChnage={(e) => console.log(e)}
         onSubjectChnage={(e) => console.log(e)}
         onContentChange={(e) => console.log(e)}
+        onSendClick={(e) => console.log(e)}
         isLoading={false}
       />
     )
