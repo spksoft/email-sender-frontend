@@ -30,11 +30,21 @@ const Presenter = ({ onFromChange, onToChnage, onSubjectChnage, onContentChange,
       <Card
         title="Email Sender"
       >
-        <RowContainer><Input addonBefore="From: " onChange={(e) => onFromChange(e.target.value)}/></RowContainer>
-        <RowContainer><Input addonBefore="To: " onChange={(e) => onToChnage(e.target.value)} /></RowContainer>
-        <RowContainer><Input addonBefore="Subject" onChange={(e) => onSubjectChnage(e.target.value)} /></RowContainer>
-        <RowContainer><h4>Content: </h4></RowContainer>
-        <RowContainer><Input.TextArea rows={6} onChange={(e) => onContentChange(e.target.value)}></Input.TextArea></RowContainer>
+        <RowContainer>
+          <Input addonBefore="From: " onChange={(e) => onFromChange(e.target.value)}/>
+        </RowContainer>
+        <RowContainer>
+          <Input addonBefore="To: " onChange={(e) => onToChnage(e.target.value)} />
+        </RowContainer>
+        <RowContainer>
+          <Input addonBefore="Subject" onChange={(e) => onSubjectChnage(e.target.value)} />
+        </RowContainer>
+        <RowContainer>
+          <h4>Content: </h4>
+        </RowContainer>
+        <RowContainer>
+          <Input.TextArea rows={6} onChange={(e) => onContentChange(e.target.value)}></Input.TextArea>
+        </RowContainer>
         <RowContainer>
           <SendButtonContainer>
             <Button onClick={onSendClick} loading={isLoading} type="primary" icon="download" size="large">Send</Button>
