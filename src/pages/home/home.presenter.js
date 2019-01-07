@@ -46,87 +46,20 @@ const tableColumns = [{
   key: 'status',
 }];
 
-const dataSource = [{
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}, {
-  from: 'Mike',
-  to: 'Tom',
-  subject: '10 Downing Street',
-  service: 'gmail',
-  status: 'sent'
-}];
-
-const Presenter = ({ onFromChange, onToChnage, onSubjectChnage, onContentChange, isLoading, onSendClick, fromValue, toValue, subjectValue, contentValue, isLoadingHistory }) => (
+const Presenter = ({ 
+  onFromChange, 
+  onToChnage, 
+  onSubjectChnage, 
+  onContentChange, 
+  isLoading, 
+  onSendClick, 
+  fromValue, 
+  toValue, 
+  subjectValue, 
+  contentValue, 
+  isLoadingHistory,
+  historyDataSource
+}) => (
   <PageContainer>
     <Body>
       <Card
@@ -166,7 +99,7 @@ const Presenter = ({ onFromChange, onToChnage, onSubjectChnage, onContentChange,
         </RowContainer>
         <RowContainer>
           <SendButtonContainer>
-            <Button onClick={onSendClick} loading={isLoading} type="primary" icon="download" size="large">Send</Button>
+            <Button onClick={onSendClick} loading={isLoading} type="primary" icon="upload" size="large">Send</Button>
           </SendButtonContainer>
         </RowContainer>
       </Card>
@@ -176,7 +109,7 @@ const Presenter = ({ onFromChange, onToChnage, onSubjectChnage, onContentChange,
       >
         {
           isLoadingHistory ? (<PageContainer><Spin /></PageContainer>) 
-            : <Table columns={tableColumns} dataSource={dataSource} pagination={{ pageSize: 10 }} />}
+            : <Table columns={tableColumns} dataSource={historyDataSource} pagination={{ pageSize: 10 }} />}
       </Card>
     </Body>
   </PageContainer>

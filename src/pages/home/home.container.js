@@ -68,6 +68,7 @@ class Container extends React.Component {
         onContentChange={this.onContentChange.bind(this)}
         onSendClick={this.onSendClick.bind(this)}
         isLoading={this.state.isLoading}
+        historyDataSource={this.state.historyData}
       />
     )
   }
