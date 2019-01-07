@@ -24,17 +24,17 @@ const SendButtonContainer = styled.div`
   justify-content: center;
 `
 
-const Presenter = () => (
+const Presenter = ({ onFromChange, onToChnage, onSubjectChnage, onContentChange }) => (
   <PageContainer>
     <Body>
       <Card
         title="Email Sender"
       >
-        <RowContainer><Input addonBefore="From: " /></RowContainer>
-        <RowContainer><Input addonBefore="To: " /></RowContainer>
-        <RowContainer><Input addonBefore="Subject" /></RowContainer>
+        <RowContainer><Input addonBefore="From: " onChange={(e) => onFromChange(e.target.value)}/></RowContainer>
+        <RowContainer><Input addonBefore="To: " onChange={(e) => onToChnage(e.target.value)} /></RowContainer>
+        <RowContainer><Input addonBefore="Subject" onChange={(e) => onSubjectChnage(e.target.value)} /></RowContainer>
         <RowContainer><h4>Content: </h4></RowContainer>
-        <RowContainer><Input.TextArea rows={4}></Input.TextArea></RowContainer>
+        <RowContainer><Input.TextArea rows={6} onChange={(e) => onContentChange(e.target.value)}></Input.TextArea></RowContainer>
         <RowContainer>
           <SendButtonContainer>
             <Button type="primary" icon="download" size="large">Send</Button>
