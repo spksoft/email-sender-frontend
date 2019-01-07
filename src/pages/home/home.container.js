@@ -20,6 +20,12 @@ class Container extends React.Component {
     this.setState({ historyData: historyData.data.data, isLoadingHistory: false })
   }
 
+  async onEmailChange(email) {
+    this.setState({ isLoadingHistory: true })
+    const historyData = await MailAPI.getHistory(email)
+    this.setState({ historyData: historyData.data.data, isLoadingHistory: false })
+  }
+
   onFromChange(from) {
     this.setState({ from })
   }
@@ -69,6 +75,7 @@ class Container extends React.Component {
         onSendClick={this.onSendClick.bind(this)}
         isLoading={this.state.isLoading}
         historyDataSource={this.state.historyData}
+        onEmailChange={this.onEmailChange.bind(this)}
       />
     )
   }

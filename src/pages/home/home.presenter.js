@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Card, Input, Button, Spin, Table } from 'antd';
+import { Card, Input, Button, Spin, Table, Icon } from 'antd';
 
 const PageContainer = styled.div`
   display: flex;
@@ -44,6 +44,7 @@ const tableColumns = [{
   title: 'Status',
   dataIndex: 'status',
   key: 'status',
+  render: text => (text === 'fail') ? <Icon style={{ color: 'red' }} type="close-circle" /> : <Icon style={{ color: 'green' }} type="check-circle" /> 
 }];
 
 const Presenter = ({ 
@@ -58,7 +59,8 @@ const Presenter = ({
   subjectValue, 
   contentValue, 
   isLoadingHistory,
-  historyDataSource
+  historyDataSource,
+  onEmailChange
 }) => (
   <PageContainer>
     <Body>
@@ -107,9 +109,14 @@ const Presenter = ({
         title="Sent History"
         style={{ marginTop: '20px' }}
       >
-        {
-          isLoadingHistory ? (<PageContainer><Spin /></PageContainer>) 
-            : <Table columns={tableColumns} dataSource={historyDataSource} pagination={{ pageSize: 10 }} />}
+        <RowContainer>
+          <Input placeholder="Email" onChange={(e) => onEmailChange(e.target.value)} />
+        </RowContainer>
+        <RowContainer>
+          {
+            isLoadingHistory ? (<PageContainer><Spin /></PageContainer>) 
+              : <Table columns={tableColumns} dataSource={historyDataSource} pagination={{ pageSize: 10 }} />}
+        </RowContainer>
       </Card>
     </Body>
   </PageContainer>
