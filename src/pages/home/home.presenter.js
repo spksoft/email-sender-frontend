@@ -24,7 +24,7 @@ const SendButtonContainer = styled.div`
   justify-content: center;
 `
 
-const Presenter = ({ onFromChange, onToChnage, onSubjectChnage, onContentChange }) => (
+const Presenter = ({ onFromChange, onToChnage, onSubjectChnage, onContentChange, isLoading }) => (
   <PageContainer>
     <Body>
       <Card
@@ -37,7 +37,7 @@ const Presenter = ({ onFromChange, onToChnage, onSubjectChnage, onContentChange 
         <RowContainer><Input.TextArea rows={6} onChange={(e) => onContentChange(e.target.value)}></Input.TextArea></RowContainer>
         <RowContainer>
           <SendButtonContainer>
-            <Button type="primary" icon="download" size="large">Send</Button>
+            <Button loading={isLoading} type="primary" icon="download" size="large">Send</Button>
           </SendButtonContainer>
         </RowContainer>
       </Card>
