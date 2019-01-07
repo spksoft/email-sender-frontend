@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Card, Input } from 'antd';
+import { Card, Input, Button } from 'antd';
 
 const PageContainer = styled.div`
   display: flex;
@@ -19,6 +19,11 @@ const RowContainer = styled.div`
   padding: 3px;
 `
 
+const SendButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 const Presenter = () => (
   <PageContainer>
     <Body>
@@ -30,6 +35,11 @@ const Presenter = () => (
         <RowContainer><Input addonBefore="Subject" /></RowContainer>
         <RowContainer><h4>Content: </h4></RowContainer>
         <RowContainer><Input.TextArea rows={4}></Input.TextArea></RowContainer>
+        <RowContainer>
+          <SendButtonContainer>
+            <Button type="primary" icon="download" size="large">Send</Button>
+          </SendButtonContainer>
+        </RowContainer>
       </Card>
     </Body>
   </PageContainer>
