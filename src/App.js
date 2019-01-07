@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { DatePicker } from 'antd';
+import Router from './router';
 class App extends Component {
   render() {
     return (
-      <div>
-        <DatePicker />
-      </div>
+      <Router />
     );
   }
 }
